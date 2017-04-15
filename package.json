@@ -1,0 +1,29 @@
+{
+  "name": "node-dynamic-cluster",
+  "version": "1.0.0",
+  "description": "NodeJS dynamic cluster",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/brugnara/node-dynamic-cluster"
+  },
+  "keywords": [
+    "cluster",
+    "dynamic"
+  ],
+  "author": "Daniele Brugnara <daniele@brugnara.me>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brugnara/node-dynamic-cluster/issues"
+  },
+  "homepage": "https://github.com/brugnara/node-dynamic-cluster",
+  "dependencies": {
+    "debug": "2.6.3",
+    "koa": "1.2.0",
+    "koa-body": "1.4.0",
+    "koa-router": "5.4.0"
+  }
+}
