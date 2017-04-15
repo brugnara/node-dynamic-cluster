@@ -17,19 +17,19 @@ curl localhost:8080
 
 ## show current cluster size
 ```
-curl localhost:8081/count
+curl localhost:8081/scale
 > {"status":"ok","data":4}% 
 ```
 
 ## change cluster size
 ```
-curl localhost:8081/count/10
+curl localhost:8081/scale/10
 > {"status":"ok","data":10}%
 ```
 
 #### check current count
 ```
-curl localhost:8081/count
+curl localhost:8081/scale
 > {"status":"ok","data":10}% 
 ```
 
@@ -48,7 +48,7 @@ curl localhost:8080
 
 ## downsize
 ```
-curl localhost:8081/count/1
+curl localhost:8081/scale/1
 > {"status":"ok","data":1}%
 ```
 

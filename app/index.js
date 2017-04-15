@@ -14,9 +14,6 @@ const http = require('http');
 const Api = require('api');
 
 const MAX_SIZE = 64;
-const CLUSTER_SIZE = +(process.env.CLUSTER_SIZE || require('os').cpus().length);
-const CLUSTER_PORT = +(process.env.CLUSTER_PORT || (process.env.PORT + 1) || 8081);
-const CLUSTER_MAX_SIZE = +(process.env.CLUSTER_MAX_SIZE || MAX_SIZE);
 
 module.exports = function (workerStart, masterCallback, options) {
 
@@ -24,8 +21,13 @@ module.exports = function (workerStart, masterCallback, options) {
     throw new Error('missing `workerStart` function');
   }
 
-  if (CLUSTER_MAX_SIZE > MAX_SIZE) {
-    debug(`WARN!! current clusterMaxSize (${CLUSTER_MAX_SIZE}) is grater than the maxSize (${MAX_SIZE}). This may not be what you want.`);
+  if (!options) {
+    options = masterCallback;
+  }
+  masterCallback = null;
+
+  if (options.maxSize > MAX_SIZE) {
+    debug(`WARN!! current clusterMaxSize (${options.maxSize}) is grater than the maxSize (${MAX_SIZE}). This may not be what you want.`);
   }
 
   if (cluster.isMaster) {
@@ -33,12 +35,8 @@ module.exports = function (workerStart, masterCallback, options) {
 
     // starting HTTP Api server
 
-    debug(`starting HTTP server for remote control, on port ${CLUSTER_PORT}`);
-    const api = Api({
-      port: CLUSTER_PORT,
-      size: CLUSTER_SIZE,
-      maxSize : CLUSTER_MAX_SIZE
-    });
+    debug(`starting HTTP server for remote control, on port ${options.port}`);
+    const api = Api(options);
 
     return api.listen(() => {
       masterCallback && masterCallback();

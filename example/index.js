@@ -9,6 +9,10 @@ const Debug = require('debug');
 const http = require('http');
 const cluster = require('../');
 
+const clusterSize = +(process.env.CLUSTER_SIZE || require('os').cpus().length);
+const port = +(process.env.CLUSTER_PORT || (process.env.PORT + 1) || 8081);
+const maxSize = +(process.env.CLUSTER_MAX_SIZE || 64);
+
 cluster(function(id) {
 
   const debug = Debug('node-dynamic-cluster:test:' + id);
@@ -19,4 +23,8 @@ cluster(function(id) {
   }).listen(8080, '0.0.0.0', () => {
     debug(`listening on 8080`);
   });
+}, {
+  clusterSize,
+  port,
+  maxSize
 });
