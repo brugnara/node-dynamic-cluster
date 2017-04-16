@@ -7,9 +7,11 @@ instead of relaunch your application.
 
 This module uses the native [cluster module](https://nodejs.org/api/cluster.html), with just some pepper.
 
-It is dependant on KoaJS for the API part, a next release will uses only native modules. 
+It is dependant on `Debug` only. 
 
-Any help will be appreciated.
+Please use the last version as the first (1.0.x and 1.1.x) use KoaJS.
+
+Any help or hint will be appreciated.
 
 ## Howto
 

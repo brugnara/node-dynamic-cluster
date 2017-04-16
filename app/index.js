@@ -45,7 +45,7 @@ module.exports = function (workerStart, masterCallback, options) {
 
   // worker code
 
-  debug(`this is worker ${cluster.worker.id}, running with pid ${process.pid}`);
+  debug(`this is worker id ${cluster.worker.id}, running with pid ${process.pid}`);
   workerStart(cluster.worker.id);
 
 };

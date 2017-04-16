@@ -1,6 +1,6 @@
 {
   "name": "node-dynamic-cluster",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "NodeJS dynamic cluster",
   "main": "app/index.js",
   "scripts": {
@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/brugnara/node-dynamic-cluster",
   "dependencies": {
-    "debug": "2.6.3",
-    "koa": "1.2.0",
-    "koa-router": "5.4.0"
+    "debug": "2.6.3"
   }
 }
