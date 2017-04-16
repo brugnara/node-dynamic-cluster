@@ -13,7 +13,7 @@ const cluster = require('cluster');
 const http = require('http');
 const Api = require('api');
 
-const MAX_SIZE = 64;
+const SUGGESTED_MAX_SIZE = 64;
 
 module.exports = function (workerStart, masterCallback, options) {
 
@@ -26,8 +26,8 @@ module.exports = function (workerStart, masterCallback, options) {
   }
   masterCallback = null;
 
-  if (options.maxSize > MAX_SIZE) {
-    debug(`WARN!! current clusterMaxSize (${options.maxSize}) is grater than the maxSize (${MAX_SIZE}). This may not be what you want.`);
+  if (options.maxSize > SUGGESTED_MAX_SIZE) {
+    debug(`WARN!! current clusterMaxSize (${options.maxSize}) is grater than the maxSize (${SUGGESTED_MAX_SIZE}). This may not be what you want.`);
   }
 
   if (cluster.isMaster) {
