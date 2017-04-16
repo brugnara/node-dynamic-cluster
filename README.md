@@ -89,3 +89,9 @@ DEBUG=node-dynamic-cluster:*
 # verbose
 DEBUG=verbose:node-dynamic-cluster:*,node-dynamic-cluster:*.
 ```
+
+## test
+
+```bash
+npm test
+```
