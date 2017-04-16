@@ -17,7 +17,36 @@ Any help or hint will be appreciated.
 
 Check `example` folder for a quick example.
 
-## Options
+```js
+const cluster = require('node-dynamic-cluster');
+
+cluster(workerStart, [masterCallback], options);
+```
+
+### workerStart
+
+The function where your app code starts. A param with the worker id is passed to this callback
+by the main API.
+
+```js
+function workerStart(id) {
+  const debug = Debug('node-dynamic-cluster:test:' + id);
+
+  http.createServer((req, res) => {
+    debug(`Ops.. Someone poked me..`);
+    res.end(`I'm ok, thanks. This is worker #${id} speaking`);
+  }).listen(8080, '0.0.0.0', () => {
+    debug(`listening on 8080`);
+  });
+}
+```
+
+### masterCallback
+> not mandatory
+
+Called after the `listen()` on the master is ready.
+
+### options
 
 ```js
 {
