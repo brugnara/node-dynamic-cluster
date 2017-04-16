@@ -1,10 +1,10 @@
 {
   "name": "node-dynamic-cluster",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "NodeJS dynamic cluster",
   "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test DEBUG=*,-mocha* mocha test/"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,10 @@
   "homepage": "https://github.com/brugnara/node-dynamic-cluster",
   "dependencies": {
     "debug": "2.6.3"
+  },
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "should": "11.2.1",
+    "superagent": "3.5.2"
   }
 }

@@ -23,8 +23,18 @@ module.exports = function (workerStart, masterCallback, options) {
 
   if (!options) {
     options = masterCallback;
+    masterCallback = null;
   }
-  masterCallback = null;
+
+  options = options || {};
+
+  if (!options.clusterSize || (options.clusterSize !== +options.clusterSize)) {
+    throw new Error('missing or wrong clusterSize');
+  }
+
+  if (!options.port) {
+    throw new Error('missing port');
+  }
 
   if (options.maxSize > SUGGESTED_MAX_SIZE) {
     debug(`WARN!! current clusterMaxSize (${options.maxSize}) is grater than the maxSize (${SUGGESTED_MAX_SIZE}). This may not be what you want.`);
@@ -38,9 +48,11 @@ module.exports = function (workerStart, masterCallback, options) {
     debug(`starting HTTP server for remote control, on port ${options.port}`);
     const api = Api(options);
 
-    return api.listen(() => {
+    api.listen(() => {
       masterCallback && masterCallback();
     });
+
+    return api;
   }
 
   // worker code

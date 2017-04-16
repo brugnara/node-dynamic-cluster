@@ -48,7 +48,7 @@ Called after the `listen()` on the master is ready.
 
 ### options
 
-```js
+```
 {
   clusterSize: 4,
   port: 8080,
@@ -81,5 +81,11 @@ It is safe to ignore it, if you know what you are doing.
 
 The host the API will listen to. Defaults to `0.0.0.0`. Useful for securing your app.
 
+## debug
 
+```bash
+DEBUG=node-dynamic-cluster:*
 
+# verbose
+DEBUG=verbose:node-dynamic-cluster:*,node-dynamic-cluster:*.
+```
