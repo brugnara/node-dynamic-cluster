@@ -13,6 +13,44 @@ Please use the last version as the first (1.0.x and 1.1.x) use KoaJS.
 
 Any help or hint will be appreciated.
 
+## API
+
+This module exposes some API via HTTP to control the cluster.
+
+#### /scale
+
+Gives you the current size
+
+```bash
+curl localhost:8080/scale
+> {"status":"ok","data":4}
+```
+
+#### /scale/:size
+
+Scale the cluster to wanted `:size`, only if the new size is `>0` and not equal to current size.
+
+```bash
+curl localhost:8080/scale/10
+> {"status":"ok","data":10}
+
+curl localhost:8080/scale/0
+> {"status":"ok","data":10} # current size is returned
+
+curl localhost:8080/scale/-20
+> {"status":"ok","data":10} # current size is returned
+```
+
+#### /check
+
+Returns info about the cluster' health. The health is **OK** if the current workers count equals the 
+wanted cluster size.
+
+```bash
+curl localhost:8080/check
+> {"status":"ok"}
+```
+
 ## Howto
 
 Check `example` folder for a quick example.

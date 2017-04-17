@@ -61,7 +61,7 @@ describe('# api', function () {
         });
     });
 
-    it.skip('should not change the current clusterSize to 0', function (done) {
+    it('should not change the current clusterSize to 0', function (done) {
       request
         .get('http://localhost:9999/scale/0')
         .end((err, res) => {
