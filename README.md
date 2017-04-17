@@ -13,6 +13,10 @@ Please use the last version as the first (1.0.x and 1.1.x) use KoaJS.
 
 Any help or hint will be appreciated.
 
+## NodeJS
+
+Developed for the current LTS, `6.10.2`.
+
 ## API
 
 This module exposes some API via HTTP to control the cluster.

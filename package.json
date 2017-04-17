@@ -1,6 +1,6 @@
 {
   "name": "node-dynamic-cluster",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "NodeJS dynamic cluster",
   "main": "app/index.js",
   "scripts": {
@@ -12,7 +12,14 @@
   },
   "keywords": [
     "cluster",
-    "dynamic"
+    "dynamic",
+    "management",
+    "manager",
+    "workers",
+    "spawn",
+    "server",
+    "master",
+    "api"
   ],
   "author": "Daniele Brugnara <daniele@brugnara.me>",
   "license": "ISC",
