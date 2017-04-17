@@ -37,7 +37,7 @@ module.exports = function (workerStart, masterCallback, options) {
   }
 
   if (options.maxSize > SUGGESTED_MAX_SIZE) {
-    debug(`WARN!! current clusterMaxSize (${options.maxSize}) is grater than the maxSize (${SUGGESTED_MAX_SIZE}). This may not be what you want.`);
+    debug(`WARN!! current clusterMaxSize (${options.maxSize}) is greater than the maxSize (${SUGGESTED_MAX_SIZE}). This may not be what you want.`);
   }
 
   if (cluster.isMaster) {
